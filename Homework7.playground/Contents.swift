@@ -58,28 +58,31 @@ struct Book: Codable{
     let id: Int?
     let title: String
     let author: String
-    let publicationYear: String
+    let published: String
     let imageURLString: String
 }
 
 
-let lesMiserables = Book(id: nil, title: "Les Miserables", author: "Victor Hugo", publicationYear: "1862", imageURLString: "https://images1.penguinrandomhouse.com/cover/9780451419439")
+let lesMiserables = Book(id: nil, title: "Les Miserables", author: "Victor Hugo", published: "1862", imageURLString: "https://images1.penguinrandomhouse.com/cover/9780451419439")
 
 
-let theBookThief = Book(id: nil, title: "The Book Thief", author: "Marcus Zusak", publicationYear: "2005", imageURLString: "https://upload.wikimedia.org/wikipedia/en/8/8f/The_Book_Thief_by_Markus_Zusak_book_cover.jpg")
+let theBookThief = Book(id: nil, title: "The Book Thief", author: "Marcus Zusak", published: "2005", imageURLString: "https://upload.wikimedia.org/wikipedia/en/8/8f/The_Book_Thief_by_Markus_Zusak_book_cover.jpg")
 
 
-let braveNewWorld = Book(id: nil, title: "Brave New World", author: "Aldous Huxley", publicationYear: "1932", imageURLString: "https://upload.wikimedia.org/wikipedia/en/6/62/BraveNewWorld_FirstEdition.jpg")
+let braveNewWorld = Book(id: nil, title: "Brave New World", author: "Aldous Huxley", published: "1932", imageURLString: "https://upload.wikimedia.org/wikipedia/en/6/62/BraveNewWorld_FirstEdition.jpg")
 
-let bloodMeridian = Book(id: nil, title: "Blood Meridian or The Evening Redness in the West", author: "Cormac McCarthy", publicationYear: "1985", imageURLString: "https://upload.wikimedia.org/wikipedia/en/d/de/CormacMcCarthy_BloodMeridian.jpg")
+let bloodMeridian = Book(id: nil, title: "Blood Meridian or The Evening Redness in the West", author: "Cormac McCarthy", published: "1985", imageURLString: "https://upload.wikimedia.org/wikipedia/en/d/de/CormacMcCarthy_BloodMeridian.jpg")
 
-let endersGame = Book(id: nil, title: "Ender's Game", author: "Orson Scott Card", publicationYear: "1985" , imageURLString: "https://en.wikipedia.org/wiki/Ender%27s_Game#/media/File:Ender's_game_cover_ISBN_0312932081.jpg")
+let endersGame = Book(id: nil, title: "Ender's Game", author: "Orson Scott Card", published: "1985" , imageURLString: "https://en.wikipedia.org/wiki/Ender%27s_Game#/media/File:Ender's_game_cover_ISBN_0312932081.jpg")
 
 let books = [lesMiserables, theBookThief, braveNewWorld, bloodMeridian, endersGame]
 
 
+
+
+let urlString = "https://uofd-tldrserver-develop.vapor.cloud/books"
 func publishBook(book:Book){
-    let urlString = "https://uofd-tldrserver-develop.vapor.cloud/books"
+   
     let url = URL(string: urlString)!
 
     var request = URLRequest(url: url)
@@ -95,3 +98,4 @@ func publishBook(book:Book){
 for book in books{
     publishBook(book: book)
 }
+
